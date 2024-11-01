@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-kolo-i-krzyzyk.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <header>
+      <button class="hamburger-button">
+        <div class="line"></div>
+        <div class="rel">
+          <div class="line1"></div>
+          <div class="line2"></div>
+        </div>
+        <div class="line-down"></div>
+      </button>
+      <ul class="games-list">
+        <li class="games-list-el-main">Kółko i krzyżyk</li>
+        <li class="games-list-el"><a class="games-list-link" href="06-rock-papper-scissors.html">Papier kamień nożyce</a></li>
+        <li class="games-list-el"><a  class="games-list-link">Snake</a></li>
+        <li class="games-list-el"><a  class="games-list-link">Pasjans</a></li>
+        <li class="games-list-el"><a class="games-list-link">Ruletka</a></li>
+      </ul>
+    </header>
+    <div class="title">
+      Kółko i krzyżyk
+    </div>
+    <div class="container1">
+      <button class="cak-choise-button1" onclick="
+      addK(1);
+      arr[0][0] = move;
+      ">
+
+      </button>
+      <button class="cak-choise-button2" onclick="
+      addK(2);
+
+      ">
+      </button>
+      <button class="cak-choise-button3" onclick="
+      addK(3);
+
+      ">
+        
+      </button>
+      <button class="cak-choise-button4" onclick="
+      addK(4);
+      ">
+
+      </button>
+      <button class="cak-choise-button5" onclick="
+      addK(5);
+      ">
+
+      </button>
+      <button class="cak-choise-button6" onclick="
+      addK(6);
+      ">
+
+      </button>
+      <button class="cak-choise-button7" onclick="
+      addK(7);
+      ">
+
+      </button>
+      <button class="cak-choise-button8" onclick="
+      addK(8);
+      ">
+
+      </button>
+      <button class="cak-choise-button9" onclick="
+      addK(9);
+      ">
+
+      </button>
+    </div>
+    <script>
+      let arr = [3][3];
+      let move = 1;
+      let circle = '<div class="circle"></div>';
+      let cross = '<div class="x"><div class="cross-line1"></div><div class="cross-line2"></div></div>'
+      function addK(num){
+        if (move%2 === 1){
+          document.querySelector(`.cak-choise-button`+ num).innerHTML = circle;
+        }
+        else{
+          document.querySelector(`.cak-choise-button`+ num).innerHTML = cross;
+        }
+        document.querySelector(`.cak-choise-button${num}`).disabled = true;
+        move++;
+      }
+      function winCheck(){
+        if (arr[0][0]=== arr[0][1] === arr[0][2]){
+
+        }
+      }
+    </script>
+  </body>

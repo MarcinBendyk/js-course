@@ -1,0 +1,236 @@
+body{
+  font-family: Audiowide, Arial;
+  color: white;
+  background-color: rgb(0, 10, 41);
+  margin: 0;
+}
+.main-container{
+  margin: 0 auto;
+}
+.container{
+  margin: 0 auto;
+  display: flex;
+  max-width: 780px;
+  flex-direction: column;
+  align-items: center;
+}
+header{
+  margin: 0 auto;
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  background-color: black;
+  box-shadow: 0 5px 5px rgba(70, 70, 70, 0.5);
+}
+.line-down{
+  border-radius: 12px;
+  height: 4px;
+  width: 36px;
+  background: linear-gradient(to right, purple, blue);
+  transition: 0.3s linear;
+}
+header:first-child(){
+  display: none;
+}
+.hamburger-button{
+  display: none;
+  border: none;
+  background-color: black;
+  margin-left: 16px;
+}
+.line{
+  border-radius: 12px;
+  margin: 0 0 8px 0;
+  height: 4px;
+  width: 36px;
+  background: linear-gradient(to right, purple, blue);
+  transition: 0.3s linear;
+}
+a{
+  text-decoration: none;
+}
+.choise-buttons-con{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.choise-button{
+  margin-right: 6px;
+  border: 2px white solid;
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: rgb(0, 10, 41);
+}
+.choise-button:last-child{
+  margin-right: 0;
+}
+.choise-button:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-color: rgb(0, 24, 97);
+}
+.choise-button:hover .choise-button-img{
+  background-color: rgb(0, 24, 97);
+}
+.choise-button-img{
+  width: 60%;
+}
+.user-move,
+.computer-move{
+  margin-top: 0;
+}
+.score-con{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+.move-con{
+  max-width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+.move-img{
+  width: 50px;
+}
+.reset-button{
+  width: 100px;
+  height: 40px;
+  font-weight: 700;
+  border: 2px white solid;
+  border-radius: 25px;
+  transition: background-color 0.4s linear,
+  color 0.4s linear;
+}
+.reset-button:hover{
+  color: rgb(0, 10, 41);
+  background-color: white;
+}
+
+.who-win-inf{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 200px;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 0 0 ;
+}
+button:hover .line:first-child{
+  opacity: 0;
+}
+button:hover .line-down{
+  opacity: 0;
+}
+button:hover .line1{
+  transform: rotate(30px);
+}
+.rel{
+  position: relative;
+  height: 4px;
+  width: 36px;
+  margin-bottom: 8px;
+}
+button:hover .line1{
+  transform: rotate(-140deg);
+}
+button:hover .line2{
+  transform: rotate(140deg);
+}
+.line1{
+  transition: 0.2s linear;
+  position: absolute;
+  height: 4px;
+  width: 36px;
+  background: linear-gradient(to right, purple, blue);
+  border-radius: 12px;
+}
+.line2{
+  transition: 0.2s linear;
+  top: 0;
+  position: absolute;
+  height: 4px;
+  width: 36px;
+  background: linear-gradient(to right, purple, blue);
+  border-radius: 12px;
+}
+.games-list{
+  display: flex;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+.games-list-el{
+  width: max-content;
+  position: relative;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.games-list-link{
+  height: 100%;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.games-list-link:visited{
+  color: white;
+}
+.games-list-el-main{
+  width: max-content;
+  position: relative;
+  letter-spacing: 1px;
+  font-size: large;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+.games-list-el-main::after{
+  content: "";
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(68, 0, 255));
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  height: 4px;
+  border-radius: 25px;
+}
+.games-list-el::after{
+  content: "";
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(68, 0, 255));
+  position: absolute;
+  left: 0px;
+  bottom: 5px;
+  height: 4px;
+  width: 0;
+  border-radius: 25px;
+  transition: 0.4s;
+  
+}
+.games-list-el:hover::after{
+  width: 100%;
+}
+@media only screen and (max-width: 767px) {
+  .games-list{
+    display: none;
+  }
+
+  header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .hamburger-button{
+    display: block;
+  }
+}
+
+
+ 

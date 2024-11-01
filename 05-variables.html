@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p> Cazrt Quanity</p>
+  <button onclick="console.log(`Cart quanity: ${quanity}`)">
+    Show quanity
+  </button>
+  <button onclick="quanity = quanity + 1">
+    Add to Cart
+  </button>
+  <button onclick="quanity = quanity + 2">
+    +2
+  </button>
+  <button onclick="quanity = quanity + 3">
+    +3
+  </button>
+  <button onclick="quanity = 0">
+    Reset Cart
+  </button>
+  <script>
+    let quanity = 0;
+    console.log(typeof(quanity));
+  </script>
+</body>
+</html>
