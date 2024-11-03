@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gra w Węża</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #gameCanvas {
+            border: 1px solid #333;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const box = 20; // Rozmiar pojedynczego "klocka"
+    let snake = [{ x: 9 * box, y: 9 * box }];
+    let direction = { x: box, y: 0 }; // Początkowy kierunek w prawo
+    let food = generateFood();
+    let score = 0;
+    let time = 200;
+
+    document.addEventListener('keydown', changeDirection);
+
+    function changeDirection(event) {
+        switch (event.keyCode) {
+            case 37: // Strzałka w lewo
+                if (direction.x === 0) direction = { x: -box, y: 0 };
+                break;
+            case 38: // Strzałka w górę
+                if (direction.y === 0) direction = { x: 0, y: -box };
+                break;
+            case 39: // Strzałka w prawo
+                if (direction.x === 0) direction = { x: box, y: 0 };
+                break;
+            case 40: // Strzałka w dół
+                if (direction.y === 0) direction = { x: 0, y: box };
+                break;
+        }
+    }
+
+    function generateFood() {
+        return {
+            x: Math.floor(Math.random() * (canvas.width / box)) * box,
+            y: Math.floor(Math.random() * (canvas.height / box)) * box
+        };
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Rysowanie węża
+        for (let i = 0; i < snake.length; i++) {
+            ctx.fillStyle = (i === 0) ? 'green' : 'lightgreen';
+            ctx.fillRect(snake[i].x, snake[i].y, box, box);
+            ctx.strokeStyle = 'darkgreen';
+            ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+        }
+
+        // Rysowanie jedzenia
+        ctx.fillStyle = 'red';
+        ctx.fillRect(food.x, food.y, box, box);
+
+        // Nowa pozycja głowy
+        const headX = snake[0].x + direction.x;
+        const headY = snake[0].y + direction.y;
+
+        // Sprawdzenie kolizji z jedzeniem
+        if (headX === food.x && headY === food.y) {
+            score++;
+            if(time <= 80){
+
+            }
+            else
+            {
+              time = time - 10;
+            }
+            game = setInterval(draw, time);
+            food = generateFood();
+            console.log(time)
+        } else {
+            snake.pop(); // Usuń ostatni segment
+        }
+
+        // Nowa głowa
+        const newHead = { x: headX, y: headY };
+
+        // Sprawdzenie kolizji z krawędziami i samym sobą
+        if (headX < 0 || headX >= canvas.width || headY < 0 || headY >= canvas.height || collision(newHead, snake)) {
+            clearInterval(game);
+            alert('Koniec gry! Twój wynik: ' + score);
+            return;
+        }
+
+        snake.unshift(newHead); // Dodaj nową głowę
+    }
+
+    function collision(head, array) {
+        return array.some(segment => head.x === segment.x && head.y === segment.y);
+    }
+
+    let game = setInterval(draw, time);
+</script>
+
+</body>
+</html>

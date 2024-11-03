@@ -107,3 +107,21 @@ a{
     transform: rotate(-360deg);
   }
 }
+
+.result-cross-and-circle-con{
+  text-align: center;
+  font-size: 26px;
+  margin: 30px auto 0 auto;
+}
+.main-content{
+  position: relative;
+}
+.after-game-info{
+  position: absolute;
+  top: 300px;
+  bottom: 300px;
+  left: 300px;
+  right: 300px;
+  
+  background-color: white;
+}
