@@ -59,13 +59,7 @@
         <p class="draws"></p>
       </div>
       <button class="reset-button" onclick="
-      results.wins = 0;
-      results.draws = 0;
-      results.defeats = 0;
-      document.querySelector('.wins').innerHTML = `Wygrane: ${results.wins}`;
-      document.querySelector('.defeats').innerHTML = `Przegrane: ${results.defeats}`;
-      document.querySelector('.draws').innerHTML = `Remisy: ${results.draws}`;
-      localStorage.removeItem('results')
+      resetScore();
       ">
       Resetuj
     </button>
@@ -83,6 +77,15 @@
     document.querySelector('.wins').innerHTML = `Wygrane: ${results.wins}`;
     document.querySelector('.defeats').innerHTML = `Przegrane: ${results.defeats}`;
     document.querySelector('.draws').innerHTML = `Remisy: ${results.draws}`;
+    function resetScore(){
+      results.wins = 0;
+      results.draws = 0;
+      results.defeats = 0;
+      document.querySelector('.wins').innerHTML = `Wygrane: ${results.wins}`;
+      document.querySelector('.defeats').innerHTML = `Przegrane: ${results.defeats}`;
+      document.querySelector('.draws').innerHTML = `Remisy: ${results.draws}`;
+      localStorage.removeItem('results');
+    }
     function checkWhoWin(userMove){
       let computerMove = pickComputerMove();
       let userMoveImg;
