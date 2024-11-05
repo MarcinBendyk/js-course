@@ -93,13 +93,13 @@
     </div>
 
     <script>
-      let licznik = 0;
-      let arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']];
+      let arr = [['A', 'B', 'C'],
+                 ['D', 'E', 'F'],
+                 ['G', 'H', 'I']];
       let move = 1;
       let circle = '<div class="circle"></div>';
       let cross = '<div class="x"><div class="cross-line1"></div><div class="cross-line2"></div></div>';
       function addK(num){
-        licznik++;
         if (move%2 === 1){
           document.querySelector(`.cak-choise-button`+ num).innerHTML = circle;
         }
@@ -115,29 +115,29 @@
         for(i = 0; i < 3; i++){ //Sprawdzenie wygranej w kolumnie
           if(arr[i][0] === arr[i][1] && arr[i][0] === arr[i][2]){
             disabledButtons();
-            document.querySelector('.result-cross-and-circle-con').innerHTML = `<div>Wgrało ${whoTurn()}</div><button onclick="arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']]; clearGame();">Reset</button>`;
+            winInf();
           }
         }
 
 
         for(i = 0; i < 3; i++){ //Sprawdzenie wygranej w rzędzie
           if(arr[0][i] === arr[1][i] && arr[0][i] === arr[2][i]){
-            document.querySelector('.result-cross-and-circle-con').innerHTML = `<div>Wgrało ${whoTurn()}</div><button onclick="arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']]; clearGame();">Reset</button>`;
             disabledButtons();
+            winInf();
           }
         }
         
 
         if (arr[0][0] === arr[1][1] && arr[0][0] === arr[2][2] || arr[2][0] === arr[1][1] && arr[2][0] === arr[0][2]){ //Sprawdzenie po przekątnych
-          document.querySelector('.result-cross-and-circle-con').innerHTML = `<div>Wgrało ${whoTurn()}</div><button onclick="arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']]; clearGame();">Reset</button>`;
           disabledButtons();
+          winInf();
         }
         checkRemis();
         }
   
       function checkRemis(){
-        if(licznik >= 9){
-          document.querySelector('.result-cross-and-circle-con').innerHTML = `Remis`;
+        if(move >= 9){
+          document.querySelector('.result-cross-and-circle-con').innerHTML = `<div>Remis</div><button class="reset-button" onclick="arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']]; clearGame();">Reset</button>`;;
         }
       }
       function whoTurn(){
@@ -154,11 +154,25 @@
         document.querySelector(`.cak-choise-button${i}`).disabled = true;
       }
 
-
       function clearGame(){
+        move = 1;
         for(i = 1; i < 10; i++)
+      {
+        document.querySelector('.result-cross-and-circle-con').innerHTML = "";
         document.querySelector(`.cak-choise-button${i}`).innerHTML = '';
         document.querySelector(`.cak-choise-button${i}`).disabled = false;
+      }
       } 
+      function verbPicker(){
+        if(whoTurn() === "Kółko"){
+          return 'Wygrało';
+        }
+        else{
+          return 'Wygrał';
+        }
+      }
+      function winInf(){
+        document.querySelector('.result-cross-and-circle-con').innerHTML = `<div>${verbPicker()} ${whoTurn()}</div><button class="reset-button" onclick="arr = [['A', 'B', 'C'],['D', 'E', 'F'],['G', 'H', 'I']]; clearGame();">Reset</button>`;
+      }
     </script>
   </body>
