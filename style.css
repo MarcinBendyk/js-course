@@ -15,6 +15,7 @@ body{
   align-items: center;
 }
 header{
+  position: relative;
   margin: 0 auto;
   max-width: 100%;
   align-items: center;
@@ -117,27 +118,7 @@ a{
   font-size: 24px;
   margin: 0 0 0 0 ;
 }
-button:hover .line:first-child{
-  opacity: 0;
-}
-button:hover .line-down{
-  opacity: 0;
-}
-button:hover .line1{
-  transform: rotate(30px);
-}
-.rel{
-  position: relative;
-  height: 4px;
-  width: 36px;
-  margin-bottom: 8px;
-}
-button:hover .line1{
-  transform: rotate(-140deg);
-}
-button:hover .line2{
-  transform: rotate(140deg);
-}
+
 .line1{
   transition: 0.2s linear;
   position: absolute;
@@ -145,6 +126,12 @@ button:hover .line2{
   width: 36px;
   background: linear-gradient(to right, purple, blue);
   border-radius: 12px;
+}
+.rel{
+  position: relative;
+  height: 4px;
+  width: 36px;
+  margin-bottom: 8px;
 }
 .line2{
   transition: 0.2s linear;
@@ -156,6 +143,7 @@ button:hover .line2{
   border-radius: 12px;
 }
 .games-list{
+  background-color: black;
   display: flex;
   list-style: none;
   width: 100%;
@@ -187,7 +175,6 @@ button:hover .line2{
   width: max-content;
   position: relative;
   letter-spacing: 1px;
-  font-size: large;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -218,8 +205,36 @@ button:hover .line2{
   width: 100%;
 }
 @media only screen and (max-width: 767px) {
-  .games-list{
+  .games-list-el-main::after,
+  .games-list-el::after{
     display: none;
+  }
+  .games-list-el,
+  .games-list-el-main{
+    align-items: center;
+    height: 60px;
+    width: 100%;
+  }
+  .games-list a{
+    height: 100%;
+    width: 100%;
+  }
+  .games-list{
+    margin-top: 0;
+    position: fixed;
+    right: 0;
+    top: 60px;
+    height: 1920px;
+    z-index: 2;
+    flex-direction: column;
+    transform: translate(-100%);
+    transition: .3s ease-in-out;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .show{
+    transform: translate(0%);
   }
 
   header{
@@ -228,9 +243,35 @@ button:hover .line2{
     justify-content: flex-start;
   }
   .hamburger-button{
+    cursor: pointer;
     display: block;
   }
+  .hamburger-button.show .line:first-child,
+  .hamburger-button.show .line-down{
+    opacity: 0;
+  }
+  
+  .hamburger-button.show .line-down{
+    opacity: 0;
+  }
+  .hamburger-button.show .line1{
+    transform: rotate(30px);
+  }
+  .hamburger-button.show .line1{
+    transform: rotate(-140deg);
+  }
+  .hamburger-button.show .line2{
+    transform: rotate(140deg);
+  }
+  body.show::-webkit-scrollbar{
+    display: none;
+  }
+  body.show {
+    overflow: hidden;
+
+  }
+
+
+
 }
-
-
  
