@@ -20,7 +20,7 @@
       </button>
       <ul class="games-list" id="games">
         <li class="games-list-el"><a class="games-list-link" href="kolko-i-krzyzyk.html">Kółko i krzyżyk</a></li>
-        <li class="games-list-el"><a class="games-list-link" href="06-rock-papper-scissors.html">Papier kamień nożyce</a></li>
+        <li class="games-list-el"><a class="games-list-link main" href="06-rock-papper-scissors.html">Papier kamień nożyce</a></li>
         <li class="games-list-el"><a  class="games-list-link">Snake</a></li>
         <li class="games-list-el"><a  class="games-list-link">Pasjans</a></li>
         <li class="games-list-el"><a class="games-list-link">Ruletka</a></li>
@@ -32,17 +32,17 @@
         <button class="choise-button" onclick="
         checkWhoWin('Rock');
         ">
-          <img class="choise-button-img" src="rock-emoji.png" alt=''>
+          <img class="choise-button-img" src="img/rock-emoji.png" alt=''>
         </button>
         <button class="choise-button" onclick="
           checkWhoWin('Papper');
         ">
-          <img class="choise-button-img" src="paper-emoji.png" alt=''>
+          <img class="choise-button-img" src="img/paper-emoji.png" alt=''>
         </button>
         <button class="choise-button" onclick="
           checkWhoWin('Scissors');
         ">
-          <img class="choise-button-img" src="scissors-emoji.png" alt=''>
+          <img class="choise-button-img" src="img/scissors-emoji.png" alt=''>
         </button>
       </div>
       <div class="who-win-con">
@@ -161,15 +161,15 @@
     }
     if(computerMove === 'Rock')
     {
-      computerMoveImg = 'rock-emoji.png';
+      computerMoveImg = 'img/rock-emoji.png';
     }
     else if(computerMove === 'Papper')
     {
-      computerMoveImg = 'paper-emoji.png'
+      computerMoveImg = 'img/paper-emoji.png'
     }
     else if(computerMove === 'Scissors')
     {
-      computerMoveImg = 'scissors-emoji.png';
+      computerMoveImg = 'img/scissors-emoji.png';
     }
     localStorage.setItem('result', result);
     localStorage.setItem('userMoveImg', userMoveImg);
